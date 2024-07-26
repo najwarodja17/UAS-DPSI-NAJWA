@@ -1,0 +1,126 @@
+### Register Admin
+POST https://najwarodja-production.up.railway.app/users/register
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "adminpass123",
+  "role": "admin"
+}
+### Register User
+POST https://najwarodja-production.up.railway.app/users/register
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "userpass123",
+  "role": "user"
+}
+
+### Login Admin => pastikan login menggunakan ID
+POST https://najwarodja-production.up.railway.app/users/login
+Content-Type: application/json
+
+{
+  "id": "ADM1",
+  "password": "adminpass123"
+}
+
+### Login User => Pastikan login menggunakan ID
+POST https://najwarodja-production.up.railway.app/users/login
+Content-Type: application/json
+
+{
+  "id": "USR1",
+  "password": "userpass123"
+}
+
+### Get All Products
+GET https://najwarodja-production.up.railway.app/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE0OTgzNjcsImV4cCI6MTcyMTUwMTk2N30.EFg0OaGkM2BObDbdG88XZSukIvyTYr1QVyO1rz00pco
+
+### Add New Product
+POST https://najwarodja-production.up.railway.app/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE3MzAxNDYsImV4cCI6MTcyMTczMzc0Nn0.3H17BwxXMXfM-UM0gk-6utRApUjgQqlxryorwY-WnUQ
+
+{
+  "name": "Product2",
+  "description": "Description for Product2",
+  "price": 50,
+  "stock": 10
+}
+### Update Product
+PUT https://najwarodja-production.up.railway.app/products/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE0OTI3MTYsImV4cCI6MTcyMTQ5NjMxNn0.8c7XUMNPIII-aXvbcf-BrcPu12JfCFtCzY7Spt7dWs0
+
+{
+  "name": "Updated Product1 ya ges ya",
+  "description": "Updated description for product1",
+  "price": 120,
+  "stock": 30
+}
+
+### Delete Product
+DELETE https://najwarodja-production.up.railway.app/products/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE0OTI3MTYsImV4cCI6MTcyMTQ5NjMxNn0.8c7XUMNPIII-aXvbcf-BrcPu12JfCFtCzY7Spt7dWs0
+
+### Create Order
+POST https://najwarodja-production.up.railway.app/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTUjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMTQ5ODQxMywiZXhwIjoxNzIxNTAyMDEzfQ.ITO1NC85Ar2GXFrKU_iv3MegmB5Fi1KsFyjTJPvpei8
+
+
+{
+  "products": [
+    {
+      "productId": 1,
+      "quantity": 4
+    }
+  ]
+}
+
+### get user orders
+GET https://najwarodja-production.up.railway.app/orders/my-orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTUjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMTQ5ODQxMywiZXhwIjoxNzIxNTAyMDEzfQ.ITO1NC85Ar2GXFrKU_iv3MegmB5Fi1KsFyjTJPvpei8
+
+
+
+### GET Order (Admin Only)
+GET https://najwarodja-production.up.railway.app/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE0OTg1MDgsImV4cCI6MTcyMTUwMjEwOH0.4F3MG0-Gzy6IC5nkCFU2c0KqbGbPNGu1UEgzK3wrxoE
+
+### Update Order Status
+PUT https://najwarodja-production.up.railway.app/orders/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE1MDE5OTQsImV4cCI6MTcyMTUwNTU5NH0.o-sL2o_LMoBsFLdVK1xKYcvxQ_QsEuvXsLbnZ2j_rVM
+
+{
+  "status": "shipped"
+}
+
+
+### Submit Feedback
+POST https://najwarodja-production.up.railway.app/feedbacks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTUjEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMTUwMjI4OSwiZXhwIjoxNzIxNTA1ODg5fQ.qUjjTPjbCK0WJOOUr_FlfbTahtSF-xGNzGxWqo6VTeg
+
+{
+  "message": "Ini adalah keluh kesah saya sebagai konsumer."
+}
+
+### Get All Feedbacks
+GET https://najwarodja-production.up.railway.app/feedbacks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE1MDIzNzMsImV4cCI6MTcyMTUwNTk3M30.q7JQLUAdipiqifPc4hjq1vCsiT8eDnW_kdc4Nh2VPoo
+
+### Respond to Feedback
+PUT https://najwarodja-production.up.railway.app/feedbacks/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFETTEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MjE1MDIzNzMsImV4cCI6MTcyMTUwNTk3M30.q7JQLUAdipiqifPc4hjq1vCsiT8eDnW_kdc4Nh2VPoo
+
+{
+  "response": "Thank you for your feedback. We have resolved the issue."
+}
